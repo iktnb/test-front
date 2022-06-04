@@ -65,6 +65,7 @@ export default {
 .login-page-image {
   background-image: url("../assets/backgrond-login.png");
   background-repeat: no-repeat;
+  background-size: auto;
 }
 .login-page-title {
   font-size: 55px;
@@ -72,8 +73,10 @@ export default {
   margin-bottom: 110px;
   color: var(--white-color);
 }
+
 .wrapper {
   display: flex;
+  align-items: flex-start;
 }
 .login-content {
   max-width: 696px;
@@ -83,6 +86,9 @@ export default {
 }
 .subtitle {
   margin-bottom: 15px;
+  span {
+    font-weight: 600;
+  }
 }
 
 .check-list {
@@ -99,7 +105,7 @@ export default {
 }
 .title {
   .title-text {
-    font-weight: 500;
+    font-weight: 600;
     margin-bottom: 10px;
     display: block;
   }
@@ -109,7 +115,34 @@ export default {
       position: absolute;
       content: url("../assets/checkMark.svg");
       left: -38px;
+      top: 4px;
     }
+  }
+}
+
+@media (max-width: 992px) {
+  .wrapper {
+    flex-direction: column-reverse;
+    align-content: flex-start;
+  }
+
+  .login-form {
+    margin-top: 40px;
+  }
+  .login-page-title {
+    margin-bottom: 30px;
+    color: var(--main-text-color);
+    font-size: 48px;
+    padding-top: 60px;
+    text-align: center;
+  }
+  .login-content {
+    max-width: inherit;
+  }
+}
+@media (max-width: 767px) {
+  .login-page-title {
+    font-size: 36px;
   }
 }
 </style>

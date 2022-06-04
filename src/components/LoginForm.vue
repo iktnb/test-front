@@ -2,8 +2,8 @@
   <div class="login-form">
     <div class="login-from_wrapper">
       <div class="inputs">
-        <Input />
-        <Input />
+        <Input label="Name" />
+        <Input label="Password" />
       </div>
       <Button class="login-button">Login</Button>
       <p class="forgot-password">Forgot Password</p>
@@ -22,11 +22,11 @@ export default {
 .login-form {
   max-width: 481px;
   width: 100%;
-  max-height: 464px;
+  min-height: 464px;
   line-height: 1.16;
   background: var(--white-color);
   box-shadow: 2px 2px 15px 2px rgba(0, 0, 0, 0.1);
-  margin-top: 275px;
+  align-self: center;
 }
 .login-from_wrapper {
   margin: 40px 30px 30px 23px;

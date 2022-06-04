@@ -2,8 +2,8 @@
   <header>
     <div class="first_layer"></div>
     <div class="second_layer">
-      <div class="wrapper logo">
-        <img src="@/assets/logo.png" alt="logo" />
+      <div class="wrapper">
+        <div class="logo"><img src="@/assets/logo.png" alt="logo" /></div>
       </div>
     </div>
   </header>
@@ -24,12 +24,23 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  height: inherit;
+  max-height: 96px;
 
-  img {
+  /*  img {
     display: block;
-    @media (max-width: 1215px) {
-      margin-left: 15px;
+  } */
+}
+@media (max-width: 992px) {
+  .first_layer {
+    display: none;
+  }
+  .second_layer {
+    height: 60px;
+  }
+  .logo {
+    height: 100%;
+    img {
+      height: 50px;
     }
   }
 }

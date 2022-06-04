@@ -37,16 +37,25 @@ export default {
 </script>
 <style lang="scss" scoped>
 footer {
-  height: 175px;
   background-color: var(--footer-color);
 
   p {
     font-size: 16px;
     color: var(--white-color);
   }
+
+  @media (max-width: 992px) {
+    p {
+      font-size: 14px;
+    }
+    .row-second {
+      justify-content: center;
+    }
+  }
 }
 
 .logo {
+  padding-right: 30px;
   img {
     height: 35px;
     width: 55.99px;
@@ -56,7 +65,6 @@ footer {
 
 .row-first {
   display: flex;
-  height: 95.5px;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid var(--white-color);
@@ -65,12 +73,15 @@ footer {
 .row-second {
   display: flex;
   align-items: center;
-  height: 79.5px;
+  padding: 35px 0;
 }
 
 .links {
   display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
   cursor: pointer;
+  padding: 30px 0;
 }
 
 .link {
@@ -79,6 +90,25 @@ footer {
   transition: border-bottom 0.3s;
   &:hover {
     border-bottom: 0.5px solid var(--white-color);
+  }
+
+  @media (max-width: 992px) {
+    margin-right: 10px;
+  }
+}
+@media (max-width: 767px) {
+  .logo {
+    display: none;
+  }
+  .links {
+    padding: 15px 0;
+  }
+  .row-first {
+    justify-content: center;
+  }
+  .row-second {
+    padding: 20px 0;
+    text-align: center;
   }
 }
 </style>

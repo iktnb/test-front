@@ -4,24 +4,26 @@
 * {
     margin: 0;
     box-sizing: border-box;
-    color: var(--text-color-main);
-    font-family: 'Roboto', sans-serif;
-    font-weight: 400;
 }
 
-body{
+
+
+body {
     background: var(--background-color);
 }
 
 .wrapper {
     max-width: 1200px;
     margin: 0 auto;
+    height: inherit;
+    padding: 0 30px;
+
+
 }
 
-ul
-{
-list-style: none;
-padding: 0;
-margin: 0;
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 

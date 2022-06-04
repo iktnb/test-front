@@ -1,17 +1,23 @@
 <template>
   <div class="input_wrapper">
-    <div class="label">Name</div>
+    <div class="label" v-if="label">{{ label }}</div>
     <div class="input-container">
       <input class="input" type="text" />
-    </div>
-    <div class="error" v-if="false">
-      <span class="error-text">Enter name</span>
+      <div class="error">
+        <span class="cross"></span>
+        <span class="error-text">Enter name</span>
+      </div>
     </div>
   </div>
 </template>
 <script>
 export default {
-  methods: {},
+  props: {
+    label: {
+      type: String,
+      default: "",
+    },
+  },
 };
 </script>
 
@@ -32,6 +38,7 @@ export default {
 }
 
 .input-container {
+  position: relative;
   .input {
     width: 100%;
     border: 1px solid var(--input-border);
@@ -46,13 +53,42 @@ export default {
     }
   }
 }
+.cross {
+  position: absolute;
+  left: -13px;
+
+  &::before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 2px;
+    left: 0;
+    transform: rotate(-45deg);
+
+    display: block;
+    background-color: var(--text-error);
+  }
+  &::after {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 2px;
+    left: 0;
+    transform: rotate(45deg);
+
+    display: block;
+    background-color: var(--text-error);
+  }
+}
 
 .error {
-  margin: 5px 0 0 0;
+  position: absolute;
+  bottom: -22px;
+  left: 20px;
 }
+
 .error-text {
   color: var(--text-error);
-
   line-height: 1.18;
   font-size: 16px;
 }
