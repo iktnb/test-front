@@ -39,7 +39,13 @@ export default {
 footer {
   height: 175px;
   background-color: var(--footer-color);
+
+  p {
+    font-size: 16px;
+    color: var(--white-color);
+  }
 }
+
 .logo {
   img {
     height: 35px;
@@ -47,6 +53,7 @@ footer {
     display: block;
   }
 }
+
 .row-first {
   display: flex;
   height: 95.5px;
@@ -54,15 +61,18 @@ footer {
   align-items: center;
   border-bottom: 1px solid var(--white-color);
 }
+
 .row-second {
   display: flex;
   align-items: center;
   height: 79.5px;
 }
+
 .links {
   display: flex;
   cursor: pointer;
 }
+
 .link {
   margin-right: 20px;
   border-bottom: 0.5px solid transparent;

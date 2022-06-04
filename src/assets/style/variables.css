@@ -1,0 +1,23 @@
+:root {
+    --background-color: #FFF;
+
+    --header-first-color: #333333;
+    --header-second-color: linear-gradient(180deg, #00a9e7 0%, #005b9f 100%);
+
+    --footer-color: #333333;
+
+    --button-color: #0076c0;
+    --button-color-hover: #fff;
+
+    --title-color: #0076c0;
+    --text-color-main: #333333;
+    --text-error: #D60000;
+    --button-text-color: #FFFFFF;;
+    --button-text-color-hover: #0076C0;
+
+    --white-color: #fff;
+
+    --input-border: #9A9A9A;
+    --input-border-error: #D60000;
+    --input-border-focus: #101010;
+}
