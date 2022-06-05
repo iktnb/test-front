@@ -27,8 +27,8 @@ import Button from "@/components/UI/Button.vue";
 export default {
   data() {
     return {
-      username: "Admin",
-      password: "12345",
+      username: "",
+      password: "",
       errorUserName: false,
       errorPassword: false,
     };
