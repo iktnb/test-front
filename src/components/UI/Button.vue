@@ -1,12 +1,29 @@
 <template>
-  <button class="button"><slot></slot></button>
+  <button :disabled="disabled" @click.prevent="click" class="button">
+    <slot></slot>
+  </button>
 </template>
 
 
-
+<script>
+export default {
+  props: {
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  methods: {
+    click() {
+      this.$emit("click");
+    },
+  },
+};
+</script>
 <style lang="scss">
 .button {
   min-height: 35px;
+  cursor: pointer;
   transition: all 0.2s;
   min-width: 133px;
   font-size: 16px;

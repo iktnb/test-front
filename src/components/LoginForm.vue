@@ -2,10 +2,20 @@
   <div class="login-form">
     <div class="login-from_wrapper">
       <div class="inputs">
-        <Input label="Name" />
-        <Input label="Password" />
+        <Input
+          :error="errorUserName"
+          v-model="username"
+          @input="onUserNameInput"
+          label="Name"
+        />
+        <Input
+          :error="errorPassword"
+          type="password"
+          label="Password"
+          @input="onPasswordInput"
+        />
       </div>
-      <Button class="login-button">Login</Button>
+      <Button @click="login()" class="login-button">Login</Button>
       <p class="forgot-password">Forgot Password</p>
     </div>
     <Button class="register-button">Register now</Button>
@@ -15,7 +25,36 @@
 import Input from "@/components/UI/Input.vue";
 import Button from "@/components/UI/Button.vue";
 export default {
+  data() {
+    return {
+      username: "Admin",
+      password: "12345",
+      errorUserName: false,
+      errorPassword: false,
+    };
+  },
   components: { Input, Button },
+  methods: {
+    onUserNameInput(e) {
+      this.username = e;
+    },
+    onPasswordInput(e) {
+      this.password = e;
+    },
+    checkValid() {
+      this.errorUserName = this.username === "Admin" ? false : true;
+      this.errorPassword = this.password === "12345" ? false : true;
+      if (!this.errorUserName && !this.errorPassword) {
+        return true;
+      } else return false;
+    },
+    login() {
+      if (this.checkValid()) {
+        localStorage.setItem("auth", "true");
+        this.$router.push("/admin");
+      }
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>
@@ -49,6 +88,7 @@ export default {
 .forgot-password {
   text-align: center;
   padding-top: 20px;
+  cursor: pointer;
   color: #056dae;
 }
 .inputs .input_wrapper {

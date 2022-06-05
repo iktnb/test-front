@@ -1,42 +1,84 @@
 <template>
-  <div class="input_wrapper">
+  <div class="input_wrapper" :class="{ autoWidth: autoWidth }">
     <div class="label" v-if="label">{{ label }}</div>
     <div class="input-container">
-      <input class="input" type="text" />
-      <div class="error">
+      <input
+        ref="input"
+        :type="type"
+        :value="value"
+        @input="onInput"
+        :disabled="disabled"
+        @focus="onFocus"
+        @blur="onBlur"
+        :class="{ todo_item: todoItem }"
+        class="input"
+      />
+      <div class="error" v-if="error">
         <span class="cross"></span>
-        <span class="error-text">Enter name</span>
+        <span class="error-text">Enter {{ toLowerCase(label) }}</span>
       </div>
     </div>
   </div>
 </template>
 <script>
 export default {
+  methods: {
+    onInput(event) {
+      this.$emit("input", event.target.value);
+    },
+    toLowerCase(text) {
+      return text.toLowerCase();
+    },
+    onBlur() {
+      this.$emit("blur");
+    },
+    onFocus(event) {
+      console.log(event);
+      this.$emit("focus", event);
+    },
+  },
   props: {
+    type: {
+      type: String,
+      default: "text",
+    },
+    value: {
+      type: String,
+      default: "",
+    },
     label: {
       type: String,
       default: "",
+    },
+    error: {
+      type: Boolean,
+      default: false,
+    },
+    todoItem: {
+      type: Boolean,
+      default: false,
+    },
+    autoWidth: {
+      type: Boolean,
+      default: false,
+    },
+    disabled: {
+      type: Boolean,
+      default: false,
     },
   },
 };
 </script>
 
 <style lang="scss" scoped>
-.input_wrapper {
-  .input_error {
-    border: 1px solid var(--input-border-error);
-  }
-  .input_focus {
-    border: 1px solid var(--input-border-focus);
-  }
-}
-
 .label {
   font-size: 18px;
   font-weight: 300;
   margin-bottom: 7px;
 }
-
+.autoWidth {
+  width: 100%;
+}
 .input-container {
   position: relative;
   .input {
@@ -51,6 +93,13 @@ export default {
       outline: none;
       border: 1px solid var(--input-border-focus);
     }
+  }
+
+  .todo_item {
+    border: 1px solid transparent;
+    font-size: 16px;
+
+    height: 40px;
   }
 }
 .cross {
